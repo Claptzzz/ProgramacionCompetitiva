@@ -4,32 +4,27 @@
 #include <vector>
 using namespace std;
 
-//incompleto
-
 bool boolA(int i, int j, vector<vector<char>>& mz) {
     if (mz[i][j] != '#' || mz[i][j]  == 'A' || mz[i][j]  == 'P' || mz[i][j]  == 'T') return false;
-    if (mz[i+1][j+2] != '#' || mz[i+1][j+2] == 'A' || mz[i+1][j+2] == 'P' || mz[i+1][j+2] == 'T') return false;
-    if (mz[i+2][j+2] != '#' || mz[i+2][j+2] == 'A' || mz[i+2][j+2] == 'P' || mz[i+2][j+2] == 'T') return false;
-    if (mz[i+3][j+2] != '#' || mz[i+3][j+2] == 'A' || mz[i+3][j+2] == 'P' || mz[i+3][j+2] == 'T') return false;
-    if (mz[i+4][j+2] != '#' || mz[i+4][j+2] == 'A' || mz[i+4][j+2] == 'P' || mz[i+4][j+2] == 'T') return false;
-    if (mz[i+3][j+1] == '#' || mz[i+3][j+1] == 'A' || mz[i+3][j+1] == 'P' || mz[i+3][j+1] == 'T') return false;
-    if (mz[i+4][j+1] == '#' || mz[i+4][j+1] == 'A' || mz[i+4][j+1] == 'P' || mz[i+4][j+1] == 'T') return false;
-    if (mz[i+1][j+1] == '#' || mz[i+1][j+1] == 'A' || mz[i+1][j+1] == 'P' || mz[i+1][j+1] == 'T') return false;
+    if (mz[i+1][j] != '#' || mz[i+1][j] == 'A' || mz[i+1][j] == 'P' || mz[i+1][j] == 'T') return false;
+    if (mz[i+2][j] != '#' || mz[i+2][j] == 'A' || mz[i+2][j] == 'P' || mz[i+2][j] == 'T') return false;
+    if (mz[i+3][j] != '#' || mz[i+3][j] == 'A' || mz[i+3][j] == 'P' || mz[i+3][j] == 'T') return false;
+    if (mz[i+4][j] != '#' || mz[i+4][j] == 'A' || mz[i+4][j] == 'P' || mz[i+4][j] == 'T') return false;
     return true;
 }
 void marcarA(int i, int j, vector<vector<char>>& mz) {
     mz[i][j] = 'A';
-    mz[i][j+1] = 'A';
-    mz[i][j+2] = 'A';
     mz[i+1][j] = 'A';
-    mz[i+1][j+2] = 'A';
     mz[i+2][j] = 'A';
-    mz[i+2][j+1] = 'A';
-    mz[i+2][j+2] = 'A';
     mz[i+3][j] = 'A';
-    mz[i+3][j+2] = 'A';
     mz[i+4][j] = 'A';
-    mz[i+4][j+2] = 'A';
+    mz[i][j-1] = 'A';
+    mz[i+2][j-1] = 'A';
+    mz[i][j-2] = 'A';
+    mz[i+1][j-2] = 'A';
+    mz[i+2][j-2] = 'A';
+    mz[i+3][j-2] = 'A';
+    mz[i+4][j-2] = 'A';
 }
 
 bool boolP(int i, int j, vector<vector<char>>& mz) {
@@ -41,31 +36,31 @@ bool boolP(int i, int j, vector<vector<char>>& mz) {
 
 void marcarP(int i, int j, vector<vector<char>>& mz) {
     mz[i][j] = 'P';
-    mz[i][j+1] = 'P';
-    mz[i][j+2] = 'P';
     mz[i+1][j] = 'P';
-    mz[i+1][j+2] = 'P';
     mz[i+2][j] = 'P';
-    mz[i+2][j+1] = 'P';
-    mz[i+2][j+2] = 'P';
-    mz[i+3][j] = 'P';
-    mz[i+4][j] = 'P';
+    mz[i][j-1] = 'P';
+    mz[i+2][j-1] = 'P';
+    mz[i][j-2] = 'P';
+    mz[i+1][j-2] = 'P';
+    mz[i+2][j-2] = 'P';
+    mz[i+3][j-2] = 'P';
+    mz[i+4][j-2] = 'P';
 }
 
 bool boolT(int i, int j, vector<vector<char>>& mz) {
     if (mz[i][j] != '#' || mz[i][j] == 'A' || mz[i][j] == 'P' || mz[i][j] == 'T') return false;
-    if (mz[i+1][j+1] != '#' || mz[i+1][j+1] == 'A' || mz[i+1][j+1] == 'P' || mz[i+1][j+1] == 'T') return false;
+  //  if (mz[i+1][j+1] != '#' || mz[i+1][j+1] == 'A' || mz[i+1][j+1] == 'P' || mz[i+1][j+1] == 'T') return false;
     return true;
 }
 
 void marcarT(int i, int j, vector<vector<char>>& mz) {
     mz[i][j] = 'T';
-    mz[i][j+1] = 'T';
-    mz[i][j+2] = 'T';
-    mz[i+1][j+1] = 'T';
-    mz[i+2][j+1] = 'T';
-    mz[i+3][j+1] = 'T';
-    mz[i+4][j+1] = 'T';
+    mz[i][j-1] = 'T';
+    mz[i][j-2] = 'T';
+    mz[i+1][j-1] = 'T';
+    mz[i+2][j-1] = 'T';
+    mz[i+3][j-1] = 'T';
+    mz[i+4][j-1] = 'T';
 }
 
 
@@ -83,10 +78,11 @@ int main() {
             cin >> mz[i][j];
         }
     }
+    
 
-    for (int i=0;i<rows;i++) {
-        for (int j=0;j<columns;j++) {
-           // if (i < rows - 4 && j < columns - 2) {
+    for (int j= columns-1; j>=0; j--) {
+        for (int i=0;j<rows;i++) {
+            if ((i+4 <rows) && (j-2 >= 0)) {
                 if (boolA(i, j, mz)) {
                 marcarA(i, j, mz);
                 a++;
@@ -99,7 +95,7 @@ int main() {
                 marcarT(i, j, mz);
                 t++;
                 }
-           // }
+            }
         }
     }
 
