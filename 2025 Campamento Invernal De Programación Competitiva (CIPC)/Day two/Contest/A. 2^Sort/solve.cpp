@@ -2,51 +2,36 @@
 
 #include <bits/stdc++.h>
 using namespace std;
-
-bool rellenarSub(vector<long long>& x, int j, vector<long long> a) {
-    bool aux = false;
-    int ant = -1;
-    int aaaa=0;
-    for (int i=j; i<x.size(); i++) {
-        x[i] = a[i];
-        if (ant == -1) {
-            ant = x[i];
-        } else {
-            if (ant*pow(2,aaaa) < x[i]*pow(2,aaaa+1)) {
-                aux = true;
-            } else {
-                aux = false;
-            }
-        }
-    }
-    return aux;
-}
-
-void rellenar(vector<long long>& x) {
-    for (int i = 0; i<x.size(); i++) {
-        cin>>x[i];
-    }
-}
-
-int main() {
  
-    int t;cin>>t;
-    int aux = 0;
-    bool b;
-
-    for (int i = 0; i<t; i++) {
-        int n,k; cin>>n>>k;
-        vector<long long> array(n);
-        vector<long long> subArray(k);
-        rellenar(array);
-        for (int j=0;j<n-k;j++) {
-            if(rellenarSub(subArray, j, array)) {
-                aux++;
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n, k;
+        cin >> n >> k;
+        vector<int> a(n);
+        for (int &x : a) cin >> x;
+ 
+        vector<int> good(n - 1, 0);
+        for (int i = 0; i < n - 1; ++i) {
+            if (a[i] < 2 * a[i + 1]) {
+                good[i] = 1;
             }
         }
-        cout<<aux;
-        aux = 0;
+ 
+        int count = 0, streak = 0;
+        for (int i = 0; i < n - 1; ++i) {
+            if (good[i]) {
+                ++streak;
+                if (streak >= k) {
+                    ++count;
+                }
+            } else {
+                streak = 0;
+            }
+        }
+ 
+        cout << count << endl;
     }
-
     return 0;
 }
