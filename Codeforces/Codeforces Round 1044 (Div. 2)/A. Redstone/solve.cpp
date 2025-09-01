@@ -3,9 +3,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void rellenar(vector<int>& x) {
-    for (int i = 0; i<x.size(); i++) {
-        cin >> x[i];
+void rellenar(priority_queue<int>& x, int n) {
+    for (int i = 0; i<n; i++) {
+        int aux;cin>>aux;
+        x.push(aux);
     }
 }
 
@@ -15,12 +16,14 @@ int main() {
 
     while(t--) {
         int n;cin>>n;
-        vector<int> e(n);
-        rellenar(e);
-        bool aux = true;
-        for (int i=1; i<n; i++) {
-            if (e[i-1] % e[i] != 0) {
-                aux = false;
+        priority_queue<int> e;
+        rellenar(e,n);
+        bool aux = false;
+        for (int i=0; i<n-1; i++) {<
+            int head = e.top();
+            e.pop();
+            if (e.top() == head) {
+                aux = true;
                 break;
             }
         }

@@ -24,9 +24,6 @@ int main() {
         ll money = 0;
         ll max = 0;
         ll min = 0;
-        ll aux = 0;
-
-        ll lastmin = 0;
 
         for (int i = n-1; i>0; i -= 2) {
             money += x[i];
