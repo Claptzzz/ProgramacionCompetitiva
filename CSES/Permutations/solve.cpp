@@ -12,7 +12,7 @@ int main() {
     if (n == 1) {
         cout << "1";
     } else if (n == 4) {
-      cout << "2 " << "4 " << "1 " << "3";
+        cout << "2 " << "4 " << "1 " << "3";
     } else if (n<4) {
         cout << "NO SOLUTION";
     } else {
