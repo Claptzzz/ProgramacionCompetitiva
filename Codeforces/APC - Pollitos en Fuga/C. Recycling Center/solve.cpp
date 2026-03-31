@@ -1,50 +1,48 @@
 //https://codeforces.com/group/mWZlmOaTZR/contest/681114/problem/C
 
 #include <bits/stdc++.h>
-#include <queue>
 using namespace std;
-
-
-int main() {
-
-    int t;cin>>t;
-
-    while(t--) {
-        int coins = 0;
-        int mult = 2;
-        int n,c;cin>>n>>c;
-        priority_queue<int> q;
-        priority_queue<int> mayores;
-        while(n--){
-            int aux;cin>>aux;
-            if (aux > c) mayores.push(aux);
-            else q.push(aux);
-        }
-        int head = q.top();
-        if (head > c) {
-            coins++;
-        }
-        q.pop();
-        while(!q.empty()){
-            int head = q.top();
-            head *= mult;
-            mult += 2;
-            if (head > c) {
-                coins++;
-            }
-            q.pop();
-        }
-        while(!mayores.empty()) {
-            int head = mayores.top();
-            head *= mult;
-            mult += 2;
-            if (head > c) {
-                coins++;
-            }
-            mayores.pop();
-        }
-        cout << coins << endl;
+typedef long long  ll;
+ 
+void aumentar(vector<ll>& x) {
+    for (int i=0; i<x.size(); i++) {
+        x[i] *= 2;
     }
-
+}
+ 
+void rellenar(vector<ll>& x) {
+    for (int i = 0; i<x.size(); i++) {
+        cin >> x[i];
+    }
+}
+ 
+int main() {
+ 
+    int t;cin>>t;
+ 
+    while (t--) {
+ 
+        int n; cin>>n;
+        ll c; cin>>c;
+        int aux = 0;
+        int cantM=0;
+ 
+        vector<ll> array(n);
+        rellenar(array);
+        
+        sort(array.begin(), array.end());
+ 
+        for (int i=n-1; i>=0; i--) {
+            if(array[i] <= c) {
+                aumentar(array);
+            } else {
+                cantM++;
+            }
+        }
+    
+        cout <<cantM << endl;
+ 
+    }
+ 
     return 0;
 }
