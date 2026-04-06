@@ -1,10 +1,10 @@
 //https://codeforces.com/group/mWZlmOaTZR/contest/682677/problem/D
-
+ 
 #include <bits/stdc++.h>
 using namespace std;
-
+ 
 int main() {
-
+ 
     int t; cin>>t;
     while(t--) {
         int n; cin>>n;
@@ -31,8 +31,11 @@ int main() {
                 cont++;
             }
         }
+        if (n == 1) {
+            cont = 1;
+        }
         cout << cont << endl;
     }
-
+ 
     return 0;
 }
