@@ -9,25 +9,12 @@ int main() {
     while(t--){
 
         int n;cin>>n;
-        priority_queue<int> q;
-
-        for(int i=0; i<n; i++){
+        set<int> papu;
+        for (int i=0; i<n; i++) {
             int aux;cin>>aux;
-            q.push(aux);
+            papu.insert(aux);
         }
-        int cant = 1;
-        int ant = q.top();
-        q.pop();
-        while(!q.empty()) {
-            int head = q.top();
-            if (head<ant) {
-                cant++;
-            }
-            ant = head;
-            q.pop();
-        }
-        cout << cant << endl;
-
+        cout << papu.size() << endl;
 
     }
 
