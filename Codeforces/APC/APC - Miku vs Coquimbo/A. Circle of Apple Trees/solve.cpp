@@ -7,7 +7,6 @@ int main() {
 
     int t;cin>>t;
     while(t--){
-
         int n;cin>>n;
         set<int> papu;
         for (int i=0; i<n; i++) {
@@ -15,8 +14,6 @@ int main() {
             papu.insert(aux);
         }
         cout << papu.size() << endl;
-
     }
-
     return 0;
 }
